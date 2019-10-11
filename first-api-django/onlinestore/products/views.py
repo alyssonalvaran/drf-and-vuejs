@@ -32,6 +32,32 @@ def product_details(request, pk):
         }, status=404)
     return response
 
+def manufacturer_list(request):
+    manufacturers = Manufacturer.objects.filter(is_active=True)
+    data = {"manufacturers": list(manufacturers.values())}
+    response = JsonResponse(data)
+    return response
+
+def manufacturer_details(request, pk):
+    try:
+        manufacturer = Manufacturer.objects.get(pk=pk)
+        data = {
+            "manufacturer": {
+                "name": manufacturer.name,
+                "location": manufacturer.location,
+                "is_active": manufacturer.is_active,
+            }
+        }
+        response = JsonResponse(data)
+    except Manufacturer.DoesNotExist:
+        response = JsonResponse({
+            "error": {
+                "code": 404,
+                "message": "Manufacturer not found!"
+            }
+        }, status=404)
+    return response
+
 # from django.views.generic.list import ListView
 # from django.views.generic.detail import DetailView
 

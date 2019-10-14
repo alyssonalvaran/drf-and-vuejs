@@ -10,7 +10,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 class EbookSerializer(serializers.ModelSerializer):
-    review = ReviewSerializer(many=True, read_only=True)
+    reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:
         model = Ebook

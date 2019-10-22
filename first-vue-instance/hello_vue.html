@@ -9,6 +9,8 @@
 <body>
 	<div id="app">
 		<h1>{{ message }}</h1>
+		<h1 v-text="value"></h1>
+
 		<h2>{{ value }}</h2>
 		<h2>{{ value * 5 }}</h2>
 		<h2>{{ "Hello" + "Vue!" }}</h2>
@@ -16,7 +18,10 @@
 		<h2>{{ Math.random() }}</h2>
 		<h2>{{ message.split('').reverse().join('') }}</h2>
 		
+		<img v-bind:src="imgSrc" alt="">
 		<img :src="imgSrc" alt="">
+
+		<a v-bind:href="link">Official Website</a>
 		<a :href="link">Official Website</a>
 	</div>
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Conditional Rendering</title>
+</head>
+<body>
+	<div id="app">
+		<h1>Product: {{ product }}</h1>
+		<h2 v-if="quantity >=20">Available</h2>
+		<h2 v-else-if="quantity > 0 && quantity < 20">Few stocks left</h2>
+		<h2 v-else>Sold out</h2>
+		<br/>
+		<h3 v-show="sale">On sale!</h3>
+	</div>
+
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>

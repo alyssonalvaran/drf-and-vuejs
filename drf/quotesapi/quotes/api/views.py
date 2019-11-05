@@ -14,3 +14,8 @@ class QuoteListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = QuoteSerializer
     # permission_classes = [IsAdminUserOrReadOnly]
     # pagination_class = SmallSetPagination
+
+class QuoteDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Quote.objects.all()
+    serializer_class = QuoteSerializer
+    # permission_classes = [IsAdminUserOrReadOnly]

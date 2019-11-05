@@ -5,17 +5,18 @@ from rest_framework import generics
 
 from quotes.models import Quote
 # from ebooks.api.pagination import SmallSetPagination
-# from ebooks.api.permissions import IsAdminUserOrReadOnly, IsReviewAuthorOrReadOnly
+from quotes.api.permissions import IsAdminUserOrReadOnly
 from quotes.api.serializers import QuoteSerializer
 
 
 class QuoteListCreateAPIView(generics.ListCreateAPIView):
     queryset = Quote.objects.all().order_by("id")
     serializer_class = QuoteSerializer
-    # permission_classes = [IsAdminUserOrReadOnly]
+    permission_classes = [IsAdminUserOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     # pagination_class = SmallSetPagination
 
 class QuoteDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Quote.objects.all()
     serializer_class = QuoteSerializer
-    # permission_classes = [IsAdminUserOrReadOnly]
+    permission_classes = [IsAdminUserOrReadOnly]
